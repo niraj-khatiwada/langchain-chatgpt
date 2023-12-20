@@ -2,6 +2,11 @@
 
 ### Give a task to perform on your favorite programming language
 
+Install:
+```
+pipenv install
+```
+
 Example:
 
 ```
