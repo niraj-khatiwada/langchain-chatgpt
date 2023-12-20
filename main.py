@@ -8,6 +8,7 @@ import os
 load_dotenv()
 
 API_KEY = os.getenv("OPENAI_API_KEY")
+IS_DEBUG_MODE = os.getenv("DEBUG") == "true"
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--language", default="python")
@@ -32,7 +33,9 @@ test_prompt = PromptTemplate(
 )
 
 
-test_chain = LLMChain(llm=llm, prompt=test_prompt, output_key="test")
+test_chain = LLMChain(
+    llm=llm, prompt=test_prompt, output_key="test", verbose=IS_DEBUG_MODE
+)
 
 
 chain = SequentialChain(
